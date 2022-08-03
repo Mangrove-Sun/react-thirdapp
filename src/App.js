@@ -1,13 +1,17 @@
-import React from "react"
-import Button from "./components/Button";
+import { ThemeProvider } from "styled-components"
+// import Button from "./components/Button"
+import theme from "./styles/theme"
+import GlobalStyle from "./styles/globalStyle";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <Button size="large" color="red"/>
-      <Button size="small" color="blue"/>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      {/* <Button /> */}
+      <TodoList />
+    </ThemeProvider>
   );
 }
 
-export default App;
+export default App
