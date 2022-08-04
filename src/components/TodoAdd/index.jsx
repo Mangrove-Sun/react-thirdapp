@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './style'
 
-function TodoAdd({ todoId, todoData, setTodoData }) {
+function TodoAdd({ todoAddHandler }) {
   const [userInput, setUserInput] = useState({ date: '', content: '' })
 
   const userInputHandler = (e) => {
@@ -9,18 +9,6 @@ function TodoAdd({ todoId, todoData, setTodoData }) {
     setUserInput({ ...userInput, [name]: value })
   }
 
-  const todoAddHandler = (userInput) => {
-    setTodoData([
-      ...todoData,
-      {
-        id: todoId.current, // useRef() 같은경우 .current를 붙여줘야 그 값에 접근할 수 있다.
-        date: userInput.date,
-        content: userInput.content,
-        checked: false,
-      },
-    ])
-    todoId.current += 1 // useRef() 같은경우 .current를 붙여줘야 그 값에 접근할 수 있다.
-  }
   return (
     <S.AddContainer>
       <S.AddInput type="date" name="date" onChange={userInputHandler} />
